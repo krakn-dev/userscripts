@@ -13,6 +13,12 @@ For [Pokemon Idle](https://pkmn-idle.com/).
 - Improves UI formatting.
 - Adds a toggle button to minimize the PC Box.
 
+## terraria.wiki.gg – Sticky Sidebar
+
+For [terraria.wiki.gg](https://terraria.wiki.gg/). Pins the left sidebar panels (Navigation, Guides, Portals, Tools, Other Languages) while scrolling.
+
+[Install script →](https://raw.githubusercontent.com/lekrakin/userscripts/main/terraria.wiki.gg.js)
+
 ## How to use
 
 - `Install userscript extension (Tampermonkey, Greasemonkey, etc.)`
