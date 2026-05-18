@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Terraria Wiki - Sticky Left Sidebar
+// @name         Terraria Wiki.gg Tweaks
 // @namespace    https://terraria.wiki.gg/
 // @version      1.0.2
 // @description  Pins the left sidebar panels while scrolling. Makes H2 headers collapsible.
