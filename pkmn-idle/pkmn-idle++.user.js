@@ -5,8 +5,8 @@
 // @description  Various tweaks to UI and extra features
 // @match        https://pkmn-idle.com/
 // @icon         https://pkmn-idle.com/pokeball.svg
-// @updateURL    https://github.com/lekrakin/userscripts/raw/refs/heads/main/pkmn-idle++.user.js
-// @downloadURL  https://github.com/lekrakin/userscripts/raw/refs/heads/main/pkmn-idle++.user.js
+// @updateURL    https://raw.githubusercontent.com/lekrakin/userscripts/main/pkmn-idle/pkmn-idle++.user.js
+// @downloadURL  https://raw.githubusercontent.com/lekrakin/userscripts/main/pkmn-idle/pkmn-idle++.user.js
 // @grant        GM_addStyle
 // ==/UserScript==
 

@@ -18,9 +18,10 @@ For [Pokemon Idle](https://pkmn-idle.com/).
 For [terraria.wiki.gg](https://terraria.wiki.gg/).
 
 - Pins the left sidebar while scrolling.
+- Moves the table of contents into the sidebar.
 - Collapsible headers.
 
-[Install script →](https://raw.githubusercontent.com/lekrakin/userscripts/main/terraria.wiki.gg.js)
+[Install script →](https://raw.githubusercontent.com/lekrakin/userscripts/main/terraria.wiki.gg/terraria.wiki.gg.js)
 
 ## How to use
 

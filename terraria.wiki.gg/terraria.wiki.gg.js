@@ -1,14 +1,15 @@
 // ==UserScript==
 // @name         Terraria Wiki.gg Tweaks
 // @namespace    https://terraria.wiki.gg/
-// @version      1.0.2
-// @description  Pins the left sidebar panels while scrolling. Makes H2 headers collapsible.
+// @version      1.0.3
+// @description  Pins the left sidebar (+ TOC) while scrolling. Makes H2 headers collapsible.
 // @author       Krakin
+// @license      MIT
 // @match        https://terraria.wiki.gg/*
 // @grant        none
 // @run-at       document-idle
-// @updateURL    https://raw.githubusercontent.com/lekrakin/userscripts/main/terraria.wiki.gg.js
-// @downloadURL  https://raw.githubusercontent.com/lekrakin/userscripts/main/terraria.wiki.gg.js
+// @updateURL    https://raw.githubusercontent.com/lekrakin/userscripts/main/terraria.wiki.gg/terraria.wiki.gg.js
+// @downloadURL  https://raw.githubusercontent.com/lekrakin/userscripts/main/terraria.wiki.gg/terraria.wiki.gg.js
 // ==/UserScript==
 
 (function () {
@@ -113,6 +114,8 @@
   function applyStickyNav() {
     const sidebar = getSidebar();
     if (!sidebar) return;
+    const logo = sidebar.querySelector('#p-logo');
+    if (logo) document.body.prepend(logo);
     normalizeAncestors(sidebar);
     injectStyles();
     const topOffset = getTopOffset();
@@ -146,6 +149,19 @@
     toggle.addEventListener('change', scheduleApply);
   }
 
+  // ── TOC → sidebar ───────────────────────────────────────────────────────────
+
+  function moveTOCToSidebar() {
+    const toc = document.querySelector('#toc, .toc');
+    const sidebar = getSidebar();
+    if (!toc || !sidebar || sidebar.contains(toc)) return;
+    const portlet = sidebar.querySelector('[class*="portlet"], [class*="portal"], [class*="vector-menu"]');
+    if (portlet) toc.className = portlet.className;
+    const title = toc.querySelector('.toctitle, #toctitle');
+    if (title) title.textContent = 'Table of Contents';
+    (portlet ?? sidebar).before(toc);
+  }
+
   // ── Collapsible H2s ─────────────────────────────────────────────────────────
 
   function makeH2sCollapsible() {
@@ -162,7 +178,6 @@
       h2.dataset.twikiCollapsible = '1';
       h2.classList.add('twiki-h2-toggle');
 
-      // Collect all sibling nodes until the next h2
       const siblings = [];
       let node = h2.nextElementSibling;
       while (node && node.tagName !== 'H2') {
@@ -171,13 +186,11 @@
       }
       if (!siblings.length) return;
 
-      // Wrap siblings in a collapsible div
       const wrapper = document.createElement('div');
       wrapper.className = 'twiki-h2-body';
       h2.after(wrapper);
       siblings.forEach((s) => wrapper.appendChild(s));
 
-      // Toggle on click
       h2.addEventListener('click', () => {
         const collapsed = wrapper.classList.toggle('twiki-collapsed');
         h2.classList.toggle('twiki-collapsed', collapsed);
@@ -190,6 +203,7 @@
   function init() {
     applyStickyNav();
     bindNavContentSizeToggle();
+    moveTOCToSidebar();
     makeH2sCollapsible();
   }
 
@@ -200,10 +214,6 @@
   }
 
   window.addEventListener('resize', scheduleApply, { passive: true });
-
-  document.addEventListener('click', (e) => {
-    if (e.target.closest('#nav-content-size-toggle, .nav-content-size-toggle')) scheduleApply();
-  });
 
   const observer = new MutationObserver(() => {
     bindNavContentSizeToggle();
