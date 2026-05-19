@@ -5,6 +5,7 @@
 // @description  Pins the left sidebar (+ TOC) while scrolling. Makes H2 headers collapsible.
 // @author       Krakin
 // @license      MIT
+// @icon         https://terraria.wiki.gg/favicon.ico
 // @match        https://terraria.wiki.gg/*
 // @grant        none
 // @run-at       document-idle
