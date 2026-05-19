@@ -21,7 +21,7 @@ For [terraria.wiki.gg](https://terraria.wiki.gg/).
 - Moves the table of contents into the sidebar.
 - Collapsible headers.
 
-[Install script →](https://raw.githubusercontent.com/lekrakin/userscripts/main/terraria.wiki.gg/terraria.wiki.gg.js)
+[Install script →](https://greasyfork.org/en/scripts/537462-terraria-wiki-gg-tweaks)
 
 ## How to use
 
