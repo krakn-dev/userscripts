@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Pokemon Idle ++
-// @author       lekrakin
+// @author       krakn-dev
 // @version      2.5.1
 // @description  Various tweaks to UI and extra features
 // @match        https://pkmn-idle.com/
