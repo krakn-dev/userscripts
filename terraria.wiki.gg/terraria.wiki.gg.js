@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Terraria Wiki.gg Tweaks
 // @namespace    https://terraria.wiki.gg/
-// @version      1.0.3
-// @description  Pins the left sidebar (+ TOC) while scrolling. Makes H2 headers collapsible.
+// @version      1.0.4
+// @description  Pins the left sidebar (+ TOC) while scrolling. Makes H2 sections collapsible.
 // @author       krakn-dev
 // @license      MIT
 // @icon         https://terraria.wiki.gg/favicon.ico
@@ -173,15 +173,18 @@
       document.querySelector('main');
     if (!content) return;
 
-    const h2s = content.querySelectorAll('h2:not([data-twiki-collapsible])') ;
+    const h2s = content.querySelectorAll('h2:not([data-twiki-collapsible])');
 
     h2s.forEach((h2) => {
       h2.dataset.twikiCollapsible = '1';
       h2.classList.add('twiki-h2-toggle');
 
+      // Newer MediaWiki wraps h2 in div.mw-heading — use that as the section boundary
+      const sectionStart = h2.closest('.mw-heading') || h2;
+
       const siblings = [];
-      let node = h2.nextElementSibling;
-      while (node && node.tagName !== 'H2') {
+      let node = sectionStart.nextElementSibling;
+      while (node && node.tagName !== 'H2' && !node.matches('.mw-heading, .mw-heading2')) {
         siblings.push(node);
         node = node.nextElementSibling;
       }
@@ -189,7 +192,7 @@
 
       const wrapper = document.createElement('div');
       wrapper.className = 'twiki-h2-body';
-      h2.after(wrapper);
+      sectionStart.after(wrapper);
       siblings.forEach((s) => wrapper.appendChild(s));
 
       h2.addEventListener('click', () => {
