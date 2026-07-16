@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         Pokemon Idle ++
 // @author       lekrakin
-// @version      2.5
+// @version      2.5.1
 // @description  Various tweaks to UI and extra features
 // @match        https://pkmn-idle.com/
 // @icon         https://pkmn-idle.com/pokeball.svg
-// @updateURL    https://raw.githubusercontent.com/lekrakin/userscripts/main/pkmn-idle/pkmn-idle++.user.js
-// @downloadURL  https://raw.githubusercontent.com/lekrakin/userscripts/main/pkmn-idle/pkmn-idle++.user.js
+// @updateURL    https://raw.githubusercontent.com/krkn-dev/userscripts/main/pkmn-idle/pkmn-idle++.user.js
+// @downloadURL  https://raw.githubusercontent.com/krkn-dev/userscripts/main/pkmn-idle/pkmn-idle++.user.js
 // @grant        GM_addStyle
 // ==/UserScript==
 

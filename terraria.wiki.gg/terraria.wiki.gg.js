@@ -9,8 +9,8 @@
 // @match        https://terraria.wiki.gg/*
 // @grant        none
 // @run-at       document-idle
-// @updateURL    https://raw.githubusercontent.com/lekrakin/userscripts/main/terraria.wiki.gg/terraria.wiki.gg.js
-// @downloadURL  https://raw.githubusercontent.com/lekrakin/userscripts/main/terraria.wiki.gg/terraria.wiki.gg.js
+// @updateURL    https://raw.githubusercontent.com/krkn-dev/userscripts/main/terraria.wiki.gg/terraria.wiki.gg.js
+// @downloadURL  https://raw.githubusercontent.com/krkn-dev/userscripts/main/terraria.wiki.gg/terraria.wiki.gg.js
 // ==/UserScript==
 
 (function () {
